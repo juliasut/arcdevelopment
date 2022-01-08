@@ -1,0 +1,22 @@
+import { Toolbar } from '@material-ui/core';
+import React from 'react';
+import Header from './ui/Header';
+
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <Toolbar />
+      {[...new Array(140)]
+        .map(
+          () => `Cras mattis consectetur purus sit amet fermentum.
+Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
+        )
+        .join('\n')}
+    </div>
+  );
+}
+
+export default App;
