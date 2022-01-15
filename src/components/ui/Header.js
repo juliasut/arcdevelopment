@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   AppBar,
+  Button,
   Tab,
   Tabs,
   Toolbar,
@@ -39,6 +40,16 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 10,
     marginLeft: '25px',
   },
+  button: {
+    borderRadius: '50px',
+    marginLeft: '50px',
+    marginRight: '25px',
+    fontFamily: 'Pacifico',
+    fontSize: '1rem',
+    textTransform: 'none',
+    height: '45px',
+    color: 'white',
+  },
 }));
 
 export default function Header(props) {
@@ -55,6 +66,13 @@ export default function Header(props) {
             <Tab className={classes.tab} label="About Us"></Tab>
             <Tab className={classes.tab} label="Contact Us"></Tab>
           </Tabs>
+          <Button
+            variant="contained"
+            color="secondary"
+            className={classes.button}
+          >
+            Free Estimate
+          </Button>
         </Toolbar>
       </AppBar>
     </ElevationScroll>
