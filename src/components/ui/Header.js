@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   AppBar,
@@ -33,6 +33,13 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     height: '7em',
   },
+
+  logoContainer: {
+    padding: 0,
+    '&:hover': {
+      backgroundColor: 'transparent',
+    },
+  },
   tabContainer: {
     marginLeft: 'auto',
   },
@@ -57,11 +64,27 @@ export default function Header(props) {
   const handleChange = (e, value) => {
     setValue(value);
   };
+
+  useEffect(() => {
+    if (window.location.pathname === '/' && value !== 0) {
+      setValue(0);
+    } else if (window.location.pathname === '/services' && value !== 1) {
+      setValue(1);
+    }
+  }, [value]);
   return (
     <ElevationScroll>
       <AppBar>
         <Toolbar disableGutters>
-          <Logo className={classes.logo} />
+          <Button
+            className={classes.logoContainer}
+            component={Link}
+            to="/"
+            disableRipple
+            onClick={() => setValue(0)}
+          >
+            <Logo className={classes.logo} />
+          </Button>
           <Tabs
             value={value}
             onChange={handleChange}
